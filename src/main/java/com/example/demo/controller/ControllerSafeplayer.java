@@ -1,13 +1,10 @@
-package com.example.demo.component;
+package com.example.demo.controller;
 
 import com.example.demo.data.Data;
 import com.example.demo.model.SafeplayerEntity;
-import com.example.demo.repo.PlayerRepository;
 import com.example.demo.repo.SafeplayerRepository;
-import com.example.demo.service.PlayerService;
 import com.example.demo.service.SafeplayerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 @Controller

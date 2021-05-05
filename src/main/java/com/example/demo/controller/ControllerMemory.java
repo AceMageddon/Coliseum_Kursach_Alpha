@@ -1,11 +1,10 @@
-package com.example.demo.component;
+package com.example.demo.controller;
 
 import com.example.demo.data.Data;
 import com.example.demo.model.MemoryEntity;
 import com.example.demo.repo.MemoryRepository;
 import com.example.demo.service.MemoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 @Controller

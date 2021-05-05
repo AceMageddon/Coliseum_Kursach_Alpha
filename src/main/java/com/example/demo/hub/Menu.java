@@ -1,6 +1,6 @@
 package com.example.demo.hub;
 
-import com.example.demo.component.*;
+import com.example.demo.controller.*;
 import com.example.demo.data.Data;
 
 import java.util.Random;
