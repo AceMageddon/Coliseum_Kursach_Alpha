@@ -6,9 +6,10 @@ import com.example.demo.repo.MemoryRepository;
 import com.example.demo.service.MemoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
-@Component
-public class ComponentMemory {
+@Controller
+public class ControllerMemory {
 
     @Autowired
     MemoryService memoryService;

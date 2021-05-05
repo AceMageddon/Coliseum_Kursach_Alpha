@@ -9,14 +9,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.text.Text;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.util.Objects;
 
 
-@Component
+@Controller
 public class MainController {
     @FXML
     Button button1;
@@ -116,8 +116,8 @@ public class MainController {
         }else{
             Data.ppassword = regpassword.getText();
         }
-        ComponentPlayer componentPlayer = (ComponentPlayer) SpringUtils.ctx.getBean(ComponentPlayer.class);
-        componentPlayer.checkemail();
+        ControllerPlayer controllerPlayer = (ControllerPlayer) SpringUtils.ctx.getBean(ControllerPlayer.class);
+        controllerPlayer.checkemail();
         if (Data.emailcheck != null) {
             regerror.setText("It seems that a user with that email is already registered. Please enter another email.");
         }
@@ -141,9 +141,9 @@ public class MainController {
     }
 
     public void regfinish(ActionEvent actionEvent) throws IOException {
-        ComponentSafeplayer componentSafeplayer = (ComponentSafeplayer) SpringUtils.ctx.getBean(ComponentSafeplayer.class);
-        ComponentPlayer componentPlayer = (ComponentPlayer) SpringUtils.ctx.getBean(ComponentPlayer.class);
-        ComponentMemory componentMemory = (ComponentMemory) SpringUtils.ctx.getBean(ComponentMemory.class);
+        ControllerSafeplayer controllerSafeplayer = (ControllerSafeplayer) SpringUtils.ctx.getBean(ControllerSafeplayer.class);
+        ControllerPlayer controllerPlayer = (ControllerPlayer) SpringUtils.ctx.getBean(ControllerPlayer.class);
+        ControllerMemory controllerMemory = (ControllerMemory) SpringUtils.ctx.getBean(ControllerMemory.class);
         String rez = regcode.getText();
         if (!Objects.equals(rez, Data.code)) {
             coderror.setText("I'm sorry, you've input an incorrect code, please try again.");
@@ -155,40 +155,40 @@ public class MainController {
             Data.stage.setMinWidth(1280);
             Data.stage.setMinHeight(720);
             Data.stage.show();
-            componentPlayer.getoriginalplayer();
-            componentPlayer.createnewplayer();
-            componentPlayer.getplayer();
-            componentMemory.getoriginalmemory();
+            controllerPlayer.getoriginalplayer();
+            controllerPlayer.createnewplayer();
+            controllerPlayer.getplayer();
+            controllerMemory.getoriginalmemory();
             Data.mplayernum++;
-            componentMemory.createnewmemory();
-            componentMemory.updateplayernum();
-            componentMemory.getmemory();
-            componentSafeplayer.updatesafe();
+            controllerMemory.createnewmemory();
+            controllerMemory.updateplayernum();
+            controllerMemory.getmemory();
+            controllerSafeplayer.updatesafe();
         }
     }
 
     public void gotohub(ActionEvent actionEvent) throws IOException {
         Data.pemail = logemail.getText();
-        ComponentPlayer componentPlayer = (ComponentPlayer) SpringUtils.ctx.getBean(ComponentPlayer.class);
-        ComponentMemory componentMemory = (ComponentMemory) SpringUtils.ctx.getBean(ComponentMemory.class);
-        ComponentEnemy componentEnemy = (ComponentEnemy) SpringUtils.ctx.getBean(ComponentEnemy.class);
+        ControllerPlayer controllerPlayer = (ControllerPlayer) SpringUtils.ctx.getBean(ControllerPlayer.class);
+        ControllerMemory controllerMemory = (ControllerMemory) SpringUtils.ctx.getBean(ControllerMemory.class);
+        ControllerEnemy controllerEnemy = (ControllerEnemy) SpringUtils.ctx.getBean(ControllerEnemy.class);
         if (showpassword1.isSelected()) {
             Data.ppassword = logshowpassword.getText();
         }else{
             Data.ppassword = logpassword.getText();
         }
-        componentPlayer.checkemail();
+        controllerPlayer.checkemail();
         if (Data.emailcheck == null) {
             logerror.setText("Our apologies, but the email that you have input does not exist in our database.");
         }
         if (Data.emailcheck != null){
-            componentPlayer.findidbyemail();
+            controllerPlayer.findidbyemail();
             if (!Objects.equals(Data.passwordcheck, Data.ppassword)){
                 logerror.setText("The password you've input is incorrect. Please check if your password again or reset it with the option below");
             }
             if (Objects.equals(Data.passwordcheck, Data.ppassword)){
-                componentPlayer.getplayer();
-                componentMemory.getmemory();
+                controllerPlayer.getplayer();
+                controllerMemory.getmemory();
                 if (Data.mbattlestatus == 0) {
                     if (Objects.equals(Data.pplayername, "none")){
                         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/FirstMeeting.fxml"));
@@ -207,7 +207,7 @@ public class MainController {
                     }
                 }
                 if (Data.mbattlestatus == 1 || Data.mbattlestatus == 3){
-                    componentEnemy.getenemy();
+                    controllerEnemy.getenemy();
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/PlayerBattle.fxml"));
                     Parent root = fxmlLoader.load();
                     Data.stage.setScene(new Scene(root, 1280, 720));
@@ -216,7 +216,7 @@ public class MainController {
                     Data.stage.show();
                 }
                 if (Data.mbattlestatus == 2){
-                    componentEnemy.getenemy();
+                    controllerEnemy.getenemy();
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/EnemyBattle.fxml"));
                     Parent root = fxmlLoader.load();
                     Data.stage.setScene(new Scene(root, 1280, 720));
@@ -226,7 +226,7 @@ public class MainController {
                 }
                 if (Data.mbattlestatus == 4){
                     if (Data.eid != 0) {
-                        componentEnemy.getenemy();
+                        controllerEnemy.getenemy();
                     }
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Results.fxml"));
                     Parent root = fxmlLoader.load();
@@ -277,14 +277,14 @@ public class MainController {
 
 
     public void reset(ActionEvent actionEvent) throws IOException {
-        ComponentPlayer componentPlayer = (ComponentPlayer) SpringUtils.ctx.getBean(ComponentPlayer.class);
-        componentPlayer.getplayer();
+        ControllerPlayer controllerPlayer = (ControllerPlayer) SpringUtils.ctx.getBean(ControllerPlayer.class);
+        controllerPlayer.getplayer();
         if (showpass.isSelected()) {
             Data.ppassword = newshowpassword.getText();
         }else{
             Data.ppassword = newpassword.getText();
         }
-        componentPlayer.updateplayer();
+        controllerPlayer.updateplayer();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/ResetSuccess.fxml"));
         Parent root = fxmlLoader.load();
         Data.stage.setScene(new Scene(root, 1280, 720));
@@ -306,13 +306,13 @@ public class MainController {
     }
 
     public void send(ActionEvent actionEvent) throws IOException {
-        ComponentPlayer componentPlayer = (ComponentPlayer) SpringUtils.ctx.getBean(ComponentPlayer.class);
+        ControllerPlayer controllerPlayer = (ControllerPlayer) SpringUtils.ctx.getBean(ControllerPlayer.class);
         Data.pemail = emailfield.getText();
-        componentPlayer.checkemail();
+        controllerPlayer.checkemail();
         if (Data.emailcheck == null){
             emailerror.setText("You've input an incorrect email. Please input a correct email adress.");
         }else{
-            componentPlayer.findidbyemail();
+            controllerPlayer.findidbyemail();
             Data.reset = 1;
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Reset.fxml"));
             Parent root = fxmlLoader.load();
@@ -324,4 +324,6 @@ public class MainController {
         }
     }
 }
+
+
 

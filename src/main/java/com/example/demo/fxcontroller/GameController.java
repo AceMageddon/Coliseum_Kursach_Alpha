@@ -7,14 +7,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.util.Random;
 
-@Component
+@Controller
 public class GameController {
 
     @FXML
@@ -221,8 +221,8 @@ public class GameController {
 
     public void state(ActionEvent actionEvent) throws IOException {
         Data.pplayername = name.getText();
-        ComponentPlayer componentPlayer = (ComponentPlayer) SpringUtils.ctx.getBean(ComponentPlayer.class);
-        componentPlayer.checkname();
+        ControllerPlayer controllerPlayer = (ControllerPlayer) SpringUtils.ctx.getBean(ControllerPlayer.class);
+        controllerPlayer.checkname();
         if (Data.namecheck != null) {
             warning.setText("Such a name is already present here, state another.");
         } else {
@@ -236,12 +236,12 @@ public class GameController {
     }
 
     public void venture(ActionEvent actionEvent) throws IOException {
-        ComponentPlayer componentPlayer = (ComponentPlayer) SpringUtils.ctx.getBean(ComponentPlayer.class);
-        ComponentEnemy componentEnemy = (ComponentEnemy) SpringUtils.ctx.getBean(ComponentEnemy.class);
-        ComponentMemory componentMemory = (ComponentMemory) SpringUtils.ctx.getBean(ComponentMemory.class);
-        componentPlayer.updateplayer();
-        componentEnemy.createenemy();
-        componentMemory.updatememory();
+        ControllerPlayer controllerPlayer = (ControllerPlayer) SpringUtils.ctx.getBean(ControllerPlayer.class);
+        ControllerEnemy controllerEnemy = (ControllerEnemy) SpringUtils.ctx.getBean(ControllerEnemy.class);
+        ControllerMemory controllerMemory = (ControllerMemory) SpringUtils.ctx.getBean(ControllerMemory.class);
+        controllerPlayer.updateplayer();
+        controllerEnemy.createenemy();
+        controllerMemory.updatememory();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/PrepBattle.fxml"));
         Parent root = fxmlLoader.load();
         Data.stage.setScene(new Scene(root, 1280, 720));
@@ -275,8 +275,8 @@ public class GameController {
     }
 
     public void show(ActionEvent actionEvent) {
-        ComponentPlayer componentPlayer = (ComponentPlayer) SpringUtils.ctx.getBean(ComponentPlayer.class);
-        ComponentMemory componentMemory = (ComponentMemory) SpringUtils.ctx.getBean(ComponentMemory.class);
+        ControllerPlayer controllerPlayer = (ControllerPlayer) SpringUtils.ctx.getBean(ControllerPlayer.class);
+        ControllerMemory controllerMemory = (ControllerMemory) SpringUtils.ctx.getBean(ControllerMemory.class);
         Data.x1 = 0;
         Data.x2 = 0;
         Data.x3 = 0;
@@ -287,8 +287,8 @@ public class GameController {
         while (repeat != 4) {
             Data.check = 1;
             while (Data.check != Data.mplayernum + 1) {
-                componentMemory.gethighscore();
-                componentPlayer.checkhighscorename();
+                controllerMemory.gethighscore();
+                controllerPlayer.checkhighscorename();
                 if (Data.x1 < Data.checkhighscore && Data.checkhighscore > Data.x2 && Data.checkhighscore > Data.x3) {
                     Data.x1 = Data.checkhighscore;
                     Data.y1 = Data.checkplayername;
@@ -319,28 +319,28 @@ public class GameController {
         Data.stage.setMinWidth(1280);
         Data.stage.setMinHeight(720);
         Data.stage.show();
-        ComponentMemory componentMemory = (ComponentMemory) SpringUtils.ctx.getBean(ComponentMemory.class);
-        ComponentPlayer componentPlayer = (ComponentPlayer) SpringUtils.ctx.getBean(ComponentPlayer.class);
-        ComponentSafeplayer componentSafeplayer = (ComponentSafeplayer) SpringUtils.ctx.getBean(ComponentSafeplayer.class);
+        ControllerMemory controllerMemory = (ControllerMemory) SpringUtils.ctx.getBean(ControllerMemory.class);
+        ControllerPlayer controllerPlayer = (ControllerPlayer) SpringUtils.ctx.getBean(ControllerPlayer.class);
+        ControllerSafeplayer controllerSafeplayer = (ControllerSafeplayer) SpringUtils.ctx.getBean(ControllerSafeplayer.class);
         Data.mparryammount = 0;
         Data.mstrike = 0;
-        componentSafeplayer.getsafeplayer();
-        componentPlayer.returnsafe();
+        controllerSafeplayer.getsafeplayer();
+        controllerPlayer.returnsafe();
         Data.mbattlestatus = 0;
-        componentMemory.updatememory();
+        controllerMemory.updatememory();
     }
 
     public void hitup(ActionEvent actionEvent) {
         if (Data.pupgrades == 0) {
             responseup.setText("‘I’m sorry, " + Data.pplayername + ", but I cannot make you stronger yet. Win some battles and come here with the rewards,’");
         } else {
-            ComponentSafeplayer componentSafeplayer = (ComponentSafeplayer) SpringUtils.ctx.getBean(ComponentSafeplayer.class);
-            ComponentPlayer componentPlayer = (ComponentPlayer) SpringUtils.ctx.getBean(ComponentPlayer.class);
+            ControllerSafeplayer controllerSafeplayer = (ControllerSafeplayer) SpringUtils.ctx.getBean(ControllerSafeplayer.class);
+            ControllerPlayer controllerPlayer = (ControllerPlayer) SpringUtils.ctx.getBean(ControllerPlayer.class);
             Data.pdamage = Data.pdamage * 5;
             Data.pupgrades--;
             Data.pshield = 0;
-            componentSafeplayer.updatesafe();
-            componentPlayer.updateplayer();
+            controllerSafeplayer.updatesafe();
+            controllerPlayer.updateplayer();
             responseup.setText("'Your hits have become stronger,'");
         }
     }
@@ -349,13 +349,13 @@ public class GameController {
         if (Data.pupgrades == 0) {
             responseup.setText("‘I’m sorry, " + Data.pplayername + ", but I cannot make you stronger yet. Win some battles and come here with the rewards,’");
         } else {
-            ComponentSafeplayer componentSafeplayer = (ComponentSafeplayer) SpringUtils.ctx.getBean(ComponentSafeplayer.class);
-            ComponentPlayer componentPlayer = (ComponentPlayer) SpringUtils.ctx.getBean(ComponentPlayer.class);
+            ControllerSafeplayer controllerSafeplayer = (ControllerSafeplayer) SpringUtils.ctx.getBean(ControllerSafeplayer.class);
+            ControllerPlayer controllerPlayer = (ControllerPlayer) SpringUtils.ctx.getBean(ControllerPlayer.class);
             Data.pabsorb++;
             Data.pupgrades--;
             Data.pshield = 0;
-            componentSafeplayer.updatesafe();
-            componentPlayer.updateplayer();
+            controllerSafeplayer.updatesafe();
+            controllerPlayer.updateplayer();
             responseup.setText("'Your shield will protect you from more harm,'");
         }
     }
@@ -364,13 +364,13 @@ public class GameController {
         if (Data.pupgrades == 0) {
             responseup.setText("‘I’m sorry, " + Data.pplayername + ", but I cannot make you stronger yet. Win some battles and come here with the rewards,’");
         } else {
-            ComponentSafeplayer componentSafeplayer = (ComponentSafeplayer) SpringUtils.ctx.getBean(ComponentSafeplayer.class);
-            ComponentPlayer componentPlayer = (ComponentPlayer) SpringUtils.ctx.getBean(ComponentPlayer.class);
+            ControllerSafeplayer controllerSafeplayer = (ControllerSafeplayer) SpringUtils.ctx.getBean(ControllerSafeplayer.class);
+            ControllerPlayer controllerPlayer = (ControllerPlayer) SpringUtils.ctx.getBean(ControllerPlayer.class);
             Data.phealth = Data.phealth * 5;
             Data.pupgrades--;
             Data.pshield = 0;
-            componentSafeplayer.updatesafe();
-            componentPlayer.updateplayer();
+            controllerSafeplayer.updatesafe();
+            controllerPlayer.updateplayer();
             responseup.setText("'Your armor will be more durable in combat,'");
         }
     }
@@ -379,13 +379,13 @@ public class GameController {
         if (Data.pupgrades == 0) {
             responseup.setText("‘I’m sorry, " + Data.pplayername + ", but I cannot make you stronger yet. Win some battles and come here with the rewards,’");
         } else {
-            ComponentSafeplayer componentSafeplayer = (ComponentSafeplayer) SpringUtils.ctx.getBean(ComponentSafeplayer.class);
-            ComponentPlayer componentPlayer = (ComponentPlayer) SpringUtils.ctx.getBean(ComponentPlayer.class);
+            ControllerSafeplayer controllerSafeplayer = (ControllerSafeplayer) SpringUtils.ctx.getBean(ControllerSafeplayer.class);
+            ControllerPlayer controllerPlayer = (ControllerPlayer) SpringUtils.ctx.getBean(ControllerPlayer.class);
             Data.pregen++;
             Data.pupgrades--;
             Data.pshield = 0;
-            componentSafeplayer.updatesafe();
-            componentPlayer.updateplayer();
+            controllerSafeplayer.updatesafe();
+            controllerPlayer.updateplayer();
             responseup.setText("'Your gourd has been expanded,'");
         }
     }
@@ -394,13 +394,13 @@ public class GameController {
         if (Data.pupgrades == 0) {
             responseup.setText("‘I’m sorry, " + Data.pplayername + ", but I cannot make you stronger yet. Win some battles and come here with the rewards,’");
         } else {
-            ComponentSafeplayer componentSafeplayer = (ComponentSafeplayer) SpringUtils.ctx.getBean(ComponentSafeplayer.class);
-            ComponentPlayer componentPlayer = (ComponentPlayer) SpringUtils.ctx.getBean(ComponentPlayer.class);
+            ControllerSafeplayer controllerSafeplayer = (ControllerSafeplayer) SpringUtils.ctx.getBean(ControllerSafeplayer.class);
+            ControllerPlayer controllerPlayer = (ControllerPlayer) SpringUtils.ctx.getBean(ControllerPlayer.class);
             Data.pfire++;
             Data.pupgrades--;
             Data.pshield = 0;
-            componentSafeplayer.updatesafe();
-            componentPlayer.updateplayer();
+            controllerSafeplayer.updatesafe();
+            controllerPlayer.updateplayer();
             responseup.setText("You have one more opportunity to make unleash your shield's true strength,'");
         }
     }
@@ -421,7 +421,7 @@ public class GameController {
         m3.setText("Against you stands " + Data.etitle + " with " + Data.eweapon + " ready for battle against you.");
         m4.setText("Fate tosses the coin to decide which of the Gladiators will begin the battle.");
         m5.setText("In the end...");
-        ComponentMemory componentMemory = (ComponentMemory) SpringUtils.ctx.getBean(ComponentMemory.class);
+        ControllerMemory controllerMemory = (ControllerMemory) SpringUtils.ctx.getBean(ControllerMemory.class);
         int coin = r.nextInt(2) + 1;
         if (coin == 1) {
             m6.setText("It has chosen you to begin the battle. Lucky you.");
@@ -434,7 +434,7 @@ public class GameController {
             enemybegin.setVisible(true);
         }
         Data.mbattlestatus = coin;
-        componentMemory.updatememory();
+        controllerMemory.updatememory();
     }
 
     public void enemybegin(ActionEvent actionEvent) throws IOException {
@@ -459,9 +459,9 @@ public class GameController {
 
     public void enemyattack(ActionEvent actionEvent) {
         opponentturn.setVisible(false);
-        ComponentPlayer componentPlayer = (ComponentPlayer) SpringUtils.ctx.getBean(ComponentPlayer.class);
-        ComponentMemory componentMemory = (ComponentMemory) SpringUtils.ctx.getBean(ComponentMemory.class);
-        ComponentEnemy componentEnemy = (ComponentEnemy) SpringUtils.ctx.getBean(ComponentEnemy.class);
+        ControllerPlayer controllerPlayer = (ControllerPlayer) SpringUtils.ctx.getBean(ControllerPlayer.class);
+        ControllerMemory controllerMemory = (ControllerMemory) SpringUtils.ctx.getBean(ControllerMemory.class);
+        ControllerEnemy controllerEnemy = (ControllerEnemy) SpringUtils.ctx.getBean(ControllerEnemy.class);
         e1.setText(Data.etitle + " faces against you, preparing himself.");
         int ogattime = Data.eattime;
         Random r = new Random();
@@ -550,24 +550,24 @@ public class GameController {
                 }
             }
             Data.eattime--;
-            componentMemory.updatememory();
-            componentPlayer.updateplayer();
-            componentEnemy.updateenemy();
+            controllerMemory.updatememory();
+            controllerPlayer.updateplayer();
+            controllerEnemy.updateenemy();
         }
         e8.setText("Your opponent seems tired out, leaving you with " + Data.phealth + " health left.");
         if (Data.phealth <= 0) {
             e9.setText("You have been defeated");
             Data.eattime = ogattime;
             Data.mbattlestatus=4;
-            componentMemory.updatememory();
-            componentEnemy.updateenemy();
+            controllerMemory.updatememory();
+            controllerEnemy.updateenemy();
             youlost.setVisible(true);
         } else {
             Data.eattime = ogattime;
             Data.mbattlestatus = 1;
-            componentMemory.updatememory();
-            componentPlayer.updateplayer();
-            componentEnemy.updateenemy();
+            controllerMemory.updatememory();
+            controllerPlayer.updateplayer();
+            controllerEnemy.updateenemy();
             e9.setText("It is time for you to strike.");
             enemyplayer.setVisible(true);
             Data.insightblock = 0;
@@ -583,10 +583,10 @@ public class GameController {
         rleg.setVisible(false);
         goback.setVisible(false);
         playerturn.setVisible(false);
-        ComponentPlayer componentPlayer = (ComponentPlayer) SpringUtils.ctx.getBean(ComponentPlayer.class);
-        ComponentInfo componentInfo = (ComponentInfo) SpringUtils.ctx.getBean(ComponentInfo.class);
-        ComponentMemory componentMemory = (ComponentMemory) SpringUtils.ctx.getBean(ComponentMemory.class);
-        ComponentEnemy componentEnemy = (ComponentEnemy) SpringUtils.ctx.getBean(ComponentEnemy.class);
+        ControllerPlayer controllerPlayer = (ControllerPlayer) SpringUtils.ctx.getBean(ControllerPlayer.class);
+        ControllerInfo controllerInfo = (ControllerInfo) SpringUtils.ctx.getBean(ControllerInfo.class);
+        ControllerMemory controllerMemory = (ControllerMemory) SpringUtils.ctx.getBean(ControllerMemory.class);
+        ControllerEnemy controllerEnemy = (ControllerEnemy) SpringUtils.ctx.getBean(ControllerEnemy.class);
         p9.setText("");
         p10.setText("");
         p11.setText("");
@@ -627,7 +627,7 @@ public class GameController {
                             }
                         }
                     }
-                    componentInfo.getinfo();
+                    controllerInfo.getinfo();
                     p4.setText(Data.idata);
                 } else {
                     p3.setText("You have not noticed anything in peculiar about your opponent.");
@@ -653,7 +653,7 @@ public class GameController {
         if (Data.pshield == 1) {
             p5.setText("You are no longer putting up a defensive position.");
             Data.pshield = 0;
-            componentPlayer.updateplayer();
+            controllerPlayer.updateplayer();
         }
         if (Data.pfirestatus > 0) {
             Data.pfirestatus++;
@@ -693,9 +693,9 @@ public class GameController {
                 playerenemy.setVisible(true);
             }
         }
-        componentMemory.updatememory();
-        componentPlayer.updateplayer();
-        componentEnemy.updateenemy();
+        controllerMemory.updatememory();
+        controllerPlayer.updateplayer();
+        controllerEnemy.updateenemy();
     }
 
     public void attack(ActionEvent actionEvent) {
@@ -721,9 +721,9 @@ public class GameController {
         block.setVisible(false);
         heal.setVisible(false);
         fire.setVisible(false);
-        ComponentPlayer componentPlayer = (ComponentPlayer) SpringUtils.ctx.getBean(ComponentPlayer.class);
-        ComponentMemory componentMemory = (ComponentMemory) SpringUtils.ctx.getBean(ComponentMemory.class);
-        ComponentEnemy componentEnemy = (ComponentEnemy) SpringUtils.ctx.getBean(ComponentEnemy.class);
+        ControllerPlayer controllerPlayer = (ControllerPlayer) SpringUtils.ctx.getBean(ControllerPlayer.class);
+        ControllerMemory controllerMemory = (ControllerMemory) SpringUtils.ctx.getBean(ControllerMemory.class);
+        ControllerEnemy controllerEnemy = (ControllerEnemy) SpringUtils.ctx.getBean(ControllerEnemy.class);
         p7.setText("Hopefully that shield can sustain the coming damage.");
         Data.pshield = 1;
         Data.turn = 1;
@@ -756,15 +756,15 @@ public class GameController {
                 playerenemy.setVisible(true);
             }
         }
-        componentMemory.updatememory();
-        componentPlayer.updateplayer();
-        componentEnemy.updateenemy();
+        controllerMemory.updatememory();
+        controllerPlayer.updateplayer();
+        controllerEnemy.updateenemy();
     }
 
     public void heal(ActionEvent actionEvent) {
-        ComponentPlayer componentPlayer = (ComponentPlayer) SpringUtils.ctx.getBean(ComponentPlayer.class);
-        ComponentMemory componentMemory = (ComponentMemory) SpringUtils.ctx.getBean(ComponentMemory.class);
-        ComponentEnemy componentEnemy = (ComponentEnemy) SpringUtils.ctx.getBean(ComponentEnemy.class);
+        ControllerPlayer controllerPlayer = (ControllerPlayer) SpringUtils.ctx.getBean(ControllerPlayer.class);
+        ControllerMemory controllerMemory = (ControllerMemory) SpringUtils.ctx.getBean(ControllerMemory.class);
+        ControllerEnemy controllerEnemy = (ControllerEnemy) SpringUtils.ctx.getBean(ControllerEnemy.class);
         if (Data.pregen != 0) {
             attack.setVisible(false);
             block.setVisible(false);
@@ -806,13 +806,13 @@ public class GameController {
                 playerenemy.setVisible(true);
             }
         }
-        componentMemory.updatememory();
-        componentPlayer.updateplayer();
-        componentEnemy.updateenemy();
+        controllerMemory.updatememory();
+        controllerPlayer.updateplayer();
+        controllerEnemy.updateenemy();
     }
 
     public void fire(ActionEvent actionEvent) {
-        ComponentPlayer componentPlayer = (ComponentPlayer) SpringUtils.ctx.getBean(ComponentPlayer.class);
+        ControllerPlayer controllerPlayer = (ControllerPlayer) SpringUtils.ctx.getBean(ControllerPlayer.class);
         if (Data.pfirestatus == 0) {
             if (Data.pfire != 0) {
                 Data.pfire--;
@@ -824,16 +824,16 @@ public class GameController {
         } else {
             p7.setText("The fuel is already in effect.");
         }
-        componentPlayer.updateplayer();
+        controllerPlayer.updateplayer();
     }
 
     public void head(ActionEvent actionEvent) {
         Data.mstrike++;
         Random r = new Random();
         Data.hitch = r.nextInt(100) + 1;
-        ComponentPlayer componentPlayer = (ComponentPlayer) SpringUtils.ctx.getBean(ComponentPlayer.class);
-        ComponentMemory componentMemory = (ComponentMemory) SpringUtils.ctx.getBean(ComponentMemory.class);
-        ComponentEnemy componentEnemy = (ComponentEnemy) SpringUtils.ctx.getBean(ComponentEnemy.class);
+        ControllerPlayer controllerPlayer = (ControllerPlayer) SpringUtils.ctx.getBean(ControllerPlayer.class);
+        ControllerMemory controllerMemory = (ControllerMemory) SpringUtils.ctx.getBean(ControllerMemory.class);
+        ControllerEnemy controllerEnemy = (ControllerEnemy) SpringUtils.ctx.getBean(ControllerEnemy.class);
         p9.setText("And the attack on the head...");
         if (Data.hitch <= Data.ehead) {
             if (Data.mbattlestatus == 1) {
@@ -843,14 +843,14 @@ public class GameController {
             Data.pmod = Data.pmod * 2;
             p10.setText("Hits a total of " + Data.pdamage * Data.pmod + " damage!");
             Data.ehealth = Data.ehealth - (Data.pdamage * Data.pmod);
-            componentMemory.updatememory();
-            componentPlayer.updateplayer();
-            componentEnemy.updateenemy();
+            controllerMemory.updatememory();
+            controllerPlayer.updateplayer();
+            controllerEnemy.updateenemy();
             if (Data.mbattlestatus == 3) {
                 Data.turn = 1;
             } else {
                 Data.mbattlestatus = 3;
-                componentMemory.updatememory();
+                controllerMemory.updatememory();
                 p12.setText("Fate has given you the opportunity to make another move. Do not waste it.");
             }
         } else {
@@ -886,25 +886,25 @@ public class GameController {
                 playerenemy.setVisible(true);
             }
         }
-        componentMemory.updatememory();
-        componentPlayer.updateplayer();
-        componentEnemy.updateenemy();
+        controllerMemory.updatememory();
+        controllerPlayer.updateplayer();
+        controllerEnemy.updateenemy();
     }
 
     public void body(ActionEvent actionEvent) {
         Data.mstrike++;
         Random r = new Random();
         Data.hitch = r.nextInt(100) + 1;
-        ComponentPlayer componentPlayer = (ComponentPlayer) SpringUtils.ctx.getBean(ComponentPlayer.class);
-        ComponentMemory componentMemory = (ComponentMemory) SpringUtils.ctx.getBean(ComponentMemory.class);
-        ComponentEnemy componentEnemy = (ComponentEnemy) SpringUtils.ctx.getBean(ComponentEnemy.class);
+        ControllerPlayer controllerPlayer = (ControllerPlayer) SpringUtils.ctx.getBean(ControllerPlayer.class);
+        ControllerMemory controllerMemory = (ControllerMemory) SpringUtils.ctx.getBean(ControllerMemory.class);
+        ControllerEnemy controllerEnemy = (ControllerEnemy) SpringUtils.ctx.getBean(ControllerEnemy.class);
         p9.setText("And the attack on the body...");
         if (Data.hitch <= Data.ebody) {
             p10.setText("Hits a total of " + Data.pdamage * Data.pmod + " damage!");
             Data.ehealth = Data.ehealth - (Data.pdamage * Data.pmod);
-            componentMemory.updatememory();
-            componentPlayer.updateplayer();
-            componentEnemy.updateenemy();
+            controllerMemory.updatememory();
+            controllerPlayer.updateplayer();
+            controllerEnemy.updateenemy();
         } else {
             p10.setText("Misses!");
         }
@@ -938,18 +938,18 @@ public class GameController {
                 playerenemy.setVisible(true);
             }
         }
-        componentMemory.updatememory();
-        componentPlayer.updateplayer();
-        componentEnemy.updateenemy();
+        controllerMemory.updatememory();
+        controllerPlayer.updateplayer();
+        controllerEnemy.updateenemy();
     }
 
     public void rarm(ActionEvent actionEvent) {
         Data.mstrike++;
         Random r = new Random();
         Data.hitch = r.nextInt(100) + 1;
-        ComponentPlayer componentPlayer = (ComponentPlayer) SpringUtils.ctx.getBean(ComponentPlayer.class);
-        ComponentMemory componentMemory = (ComponentMemory) SpringUtils.ctx.getBean(ComponentMemory.class);
-        ComponentEnemy componentEnemy = (ComponentEnemy) SpringUtils.ctx.getBean(ComponentEnemy.class);
+        ControllerPlayer controllerPlayer = (ControllerPlayer) SpringUtils.ctx.getBean(ControllerPlayer.class);
+        ControllerMemory controllerMemory = (ControllerMemory) SpringUtils.ctx.getBean(ControllerMemory.class);
+        ControllerEnemy controllerEnemy = (ControllerEnemy) SpringUtils.ctx.getBean(ControllerEnemy.class);
         p9.setText("And the attack on the right arm...");
         if (Data.hitch <= Data.earms) {
             if (Data.eracrit == 1) {
@@ -964,12 +964,12 @@ public class GameController {
             }
             p10.setText("Hits a total of " + Data.pdamage * Data.pmod + " damage!");
             Data.ehealth = Data.ehealth - (Data.pdamage * Data.pmod);
-            componentMemory.updatememory();
-            componentPlayer.updateplayer();
-            componentEnemy.updateenemy();
+            controllerMemory.updatememory();
+            controllerPlayer.updateplayer();
+            controllerEnemy.updateenemy();
             if (Data.eracrit == 1) {
                 Data.eracrit = 0;
-                componentEnemy.updateenemy();
+                controllerEnemy.updateenemy();
                 p12.setText("Fate has given you the opportunity to make another move. Do not waste it.");
             } else {
                 Data.turn = 1;
@@ -1007,18 +1007,18 @@ public class GameController {
                 playerenemy.setVisible(true);
             }
         }
-        componentMemory.updatememory();
-        componentPlayer.updateplayer();
-        componentEnemy.updateenemy();
+        controllerMemory.updatememory();
+        controllerPlayer.updateplayer();
+        controllerEnemy.updateenemy();
     }
 
     public void larm(ActionEvent actionEvent) {
         Data.mstrike++;
         Random r = new Random();
         Data.hitch = r.nextInt(100) + 1;
-        ComponentPlayer componentPlayer = (ComponentPlayer) SpringUtils.ctx.getBean(ComponentPlayer.class);
-        ComponentMemory componentMemory = (ComponentMemory) SpringUtils.ctx.getBean(ComponentMemory.class);
-        ComponentEnemy componentEnemy = (ComponentEnemy) SpringUtils.ctx.getBean(ComponentEnemy.class);
+        ControllerPlayer controllerPlayer = (ControllerPlayer) SpringUtils.ctx.getBean(ControllerPlayer.class);
+        ControllerMemory controllerMemory = (ControllerMemory) SpringUtils.ctx.getBean(ControllerMemory.class);
+        ControllerEnemy controllerEnemy = (ControllerEnemy) SpringUtils.ctx.getBean(ControllerEnemy.class);
         p9.setText("And the attack on the left arm...");
         if (Data.hitch <= Data.earms) {
             if (Data.elacrit == 1) {
@@ -1033,12 +1033,12 @@ public class GameController {
             }
             p10.setText("Hits a total of " + Data.pdamage * Data.pmod + " damage!");
             Data.ehealth = Data.ehealth - (Data.pdamage * Data.pmod);
-            componentMemory.updatememory();
-            componentPlayer.updateplayer();
-            componentEnemy.updateenemy();
+            controllerMemory.updatememory();
+            controllerPlayer.updateplayer();
+            controllerEnemy.updateenemy();
             if (Data.elacrit == 1) {
                 Data.elacrit = 0;
-                componentEnemy.updateenemy();
+                controllerEnemy.updateenemy();
                 p12.setText("Fate has given you the opportunity to make another move. Do not waste it.");
             } else {
                 Data.turn = 1;
@@ -1076,18 +1076,18 @@ public class GameController {
                 playerenemy.setVisible(true);
             }
         }
-        componentMemory.updatememory();
-        componentPlayer.updateplayer();
-        componentEnemy.updateenemy();
+        controllerMemory.updatememory();
+        controllerPlayer.updateplayer();
+        controllerEnemy.updateenemy();
     }
 
     public void lleg(ActionEvent actionEvent) {
         Data.mstrike++;
         Random r = new Random();
         Data.hitch = r.nextInt(100) + 1;
-        ComponentPlayer componentPlayer = (ComponentPlayer) SpringUtils.ctx.getBean(ComponentPlayer.class);
-        ComponentMemory componentMemory = (ComponentMemory) SpringUtils.ctx.getBean(ComponentMemory.class);
-        ComponentEnemy componentEnemy = (ComponentEnemy) SpringUtils.ctx.getBean(ComponentEnemy.class);
+        ControllerPlayer controllerPlayer = (ControllerPlayer) SpringUtils.ctx.getBean(ControllerPlayer.class);
+        ControllerMemory controllerMemory = (ControllerMemory) SpringUtils.ctx.getBean(ControllerMemory.class);
+        ControllerEnemy controllerEnemy = (ControllerEnemy) SpringUtils.ctx.getBean(ControllerEnemy.class);
         p9.setText("And the attack on the left leg...");
         if (Data.hitch <= Data.elegs) {
             if (Data.ellcrit == 1) {
@@ -1102,12 +1102,12 @@ public class GameController {
             }
             p10.setText("Hits a total of " + Data.pdamage * Data.pmod + " damage!");
             Data.ehealth = Data.ehealth - (Data.pdamage * Data.pmod);
-            componentMemory.updatememory();
-            componentPlayer.updateplayer();
-            componentEnemy.updateenemy();
+            controllerMemory.updatememory();
+            controllerPlayer.updateplayer();
+            controllerEnemy.updateenemy();
             if (Data.ellcrit == 1) {
                 Data.ellcrit = 0;
-                componentEnemy.updateenemy();
+                controllerEnemy.updateenemy();
                 p12.setText("Fate has given you the opportunity to make another move. Do not waste it.");
             } else {
                 Data.turn = 1;
@@ -1145,18 +1145,18 @@ public class GameController {
                 playerenemy.setVisible(true);
             }
         }
-        componentMemory.updatememory();
-        componentPlayer.updateplayer();
-        componentEnemy.updateenemy();
+        controllerMemory.updatememory();
+        controllerPlayer.updateplayer();
+        controllerEnemy.updateenemy();
     }
 
     public void rleg(ActionEvent actionEvent) {
         Data.mstrike++;
         Random r = new Random();
         Data.hitch = r.nextInt(100) + 1;
-        ComponentPlayer componentPlayer = (ComponentPlayer) SpringUtils.ctx.getBean(ComponentPlayer.class);
-        ComponentMemory componentMemory = (ComponentMemory) SpringUtils.ctx.getBean(ComponentMemory.class);
-        ComponentEnemy componentEnemy = (ComponentEnemy) SpringUtils.ctx.getBean(ComponentEnemy.class);
+        ControllerPlayer controllerPlayer = (ControllerPlayer) SpringUtils.ctx.getBean(ControllerPlayer.class);
+        ControllerMemory controllerMemory = (ControllerMemory) SpringUtils.ctx.getBean(ControllerMemory.class);
+        ControllerEnemy controllerEnemy = (ControllerEnemy) SpringUtils.ctx.getBean(ControllerEnemy.class);
         p9.setText("And the attack on the right leg...");
         if (Data.hitch <= Data.elegs) {
             if (Data.erlcrit == 1) {
@@ -1171,12 +1171,12 @@ public class GameController {
             }
             p10.setText("Hits a total of " + Data.pdamage * Data.pmod + " damage!");
             Data.ehealth = Data.ehealth - (Data.pdamage * Data.pmod);
-            componentMemory.updatememory();
-            componentPlayer.updateplayer();
-            componentEnemy.updateenemy();
+            controllerMemory.updatememory();
+            controllerPlayer.updateplayer();
+            controllerEnemy.updateenemy();
             if (Data.erlcrit == 1) {
                 Data.erlcrit = 0;
-                componentEnemy.updateenemy();
+                controllerEnemy.updateenemy();
                 p12.setText("Fate has given you the opportunity to make another move. Do not waste it.");
             } else {
                 Data.turn = 1;
@@ -1214,9 +1214,9 @@ public class GameController {
                 playerenemy.setVisible(true);
             }
         }
-        componentMemory.updatememory();
-        componentPlayer.updateplayer();
-        componentEnemy.updateenemy();
+        controllerMemory.updatememory();
+        controllerPlayer.updateplayer();
+        controllerEnemy.updateenemy();
     }
 
 
@@ -1231,8 +1231,8 @@ public class GameController {
 
     public void showresult(ActionEvent actionEvent) {
         showresult.setVisible(false);
-        ComponentMemory componentMemory = (ComponentMemory) SpringUtils.ctx.getBean(ComponentMemory.class);
-        ComponentEnemy componentEnemy = (ComponentEnemy) SpringUtils.ctx.getBean(ComponentEnemy.class);
+        ControllerMemory controllerMemory = (ControllerMemory) SpringUtils.ctx.getBean(ControllerMemory.class);
+        ControllerEnemy controllerEnemy = (ControllerEnemy) SpringUtils.ctx.getBean(ControllerEnemy.class);
         int score = 0;
         if (Data.phealth <= 0) {
             r1.setText("YOU LOST!");
@@ -1255,11 +1255,13 @@ public class GameController {
         }
         r8.setText("Your current highscore: " + Data.mhighscore);
         if (Data.eid != 0) {
-            componentEnemy.deleteenemy();
+            controllerEnemy.deleteenemy();
             Data.eid = 0;
         }
-        componentMemory.updatememory();
+        controllerMemory.updatememory();
         backtohub.setVisible(true);
     }
 }
+
+
 

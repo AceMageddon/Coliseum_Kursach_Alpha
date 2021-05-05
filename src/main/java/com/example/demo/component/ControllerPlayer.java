@@ -7,9 +7,10 @@ import com.example.demo.service.PlayerService;
 import com.example.demo.service.SendEmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
-@Component
-public class ComponentPlayer {
+@Controller
+public class ControllerPlayer {
 
     @Autowired
     PlayerService playerService;

@@ -6,11 +6,12 @@ import com.example.demo.repo.EnemyRepository;
 import com.example.demo.service.EnemyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
 import java.util.Random;
 
-@Component
-public class ComponentEnemy {
+@Controller
+public class ControllerEnemy {
     @Autowired
     EnemyService enemyService;
 
