@@ -8,9 +8,10 @@ import com.example.demo.service.PlayerService;
 import com.example.demo.service.SafeplayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
-@Component
-public class ComponentSafeplayer {
+@Controller
+public class ControllerSafeplayer {
 
     @Autowired
     SafeplayerService safeplayerService;

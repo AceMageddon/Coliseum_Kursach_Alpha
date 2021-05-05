@@ -1,11 +1,6 @@
 package com.example.demo;
 
-import com.example.demo.component.ComponentPlayer;
-import com.example.demo.component.SpringUtils;
 import com.example.demo.data.Data;
-import com.example.demo.hub.Menu;
-import com.example.demo.service.EnemyService;
-import com.example.demo.service.PlayerService;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,19 +8,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import org.json.JSONException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-
-import javax.annotation.PostConstruct;
-import javax.swing.*;
-import java.awt.*;
-import java.io.IOException;
-import java.util.Scanner;
-
-import static com.example.demo.data.Data.*;
 
 
 @SpringBootApplication

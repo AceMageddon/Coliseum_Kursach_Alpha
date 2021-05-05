@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class Menu {
     public static void codegenerator() {
-        ComponentPlayer componentPlayer = (ComponentPlayer) SpringUtils.ctx.getBean(ComponentPlayer.class);
+        ControllerPlayer componentPlayer = (ControllerPlayer) SpringUtils.ctx.getBean(ControllerPlayer.class);
         Random rn = new Random();
         int code1 = rn.nextInt(9) + 0;
         int code2 = rn.nextInt(9) + 0;
