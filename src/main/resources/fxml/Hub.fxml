@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.fxcontroller.GameController">
+   <children>
+      <Text layoutX="7.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="‘Ah, you have returned,  Master,' greets you your Servant with excitement. ‘Well, you would’ve come here one way or the other, right?’" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Text>
+      <Text layoutX="14.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="‘Yes, it is true, is it not? Victory or defeat, life or death, you would return here and I shall be here, waiting for you,’" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Text>
+      <Text layoutX="12.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="‘But remember, each victory brings you closer towards freedom And, each defeat is temporary,’" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Text>
+      <Text layoutX="14.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="‘Now, what can I do for you, Gladiator?’" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Text>
+      <Button layoutX="438.0" layoutY="439.0" mnemonicParsing="false" onAction="#venture" text="Prepare me for a new battle" textAlignment="CENTER">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Button layoutX="507.0" layoutY="531.0" mnemonicParsing="false" onAction="#upgrade" text="Upgrade my gear" textAlignment="CENTER">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Button layoutX="376.0" layoutY="631.0" mnemonicParsing="false" onAction="#highscore" text="Let me see a list of current champions">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Text fx:id="noup" layoutX="24.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

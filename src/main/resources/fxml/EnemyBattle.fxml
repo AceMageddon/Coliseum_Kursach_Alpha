@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.fxcontroller.GameController">
+   <children>
+      <Text fx:id="e1" layoutX="24.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Text>
+      <Text fx:id="e2" layoutX="24.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Text>
+      <Button fx:id="enemyplayer" layoutX="577.0" layoutY="610.0" mnemonicParsing="false" onAction="#playerbegin" text="Your turn" visible="false">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Text fx:id="e3" layoutX="24.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Text>
+      <Text fx:id="e4" layoutX="24.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Text>
+      <Text fx:id="e5" layoutX="24.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Text>
+      <Text fx:id="e7" layoutX="14.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Text>
+      <Text fx:id="e6" layoutX="24.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Text>
+      <Text fx:id="e8" layoutX="24.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Text>
+      <Text fx:id="e9" layoutX="24.0" layoutY="437.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Text>
+      <Button fx:id="opponentturn" layoutX="530.0" layoutY="300.0" mnemonicParsing="false" onAction="#enemyattack" text="Opponent's turn">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Button fx:id="youlost" layoutX="577.0" layoutY="610.0" mnemonicParsing="false" onAction="#gotoresult" prefHeight="65.0" prefWidth="165.0" text="You lost" visible="false">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
