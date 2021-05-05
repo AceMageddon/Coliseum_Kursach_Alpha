@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.fxcontroller.GameController">
+   <children>
+      <Text layoutX="198.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You see a tall hooded figure standing in front of you." textAlignment="CENTER" wrappingWidth="883.41796875">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Text>
+      <Text layoutX="30.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Its form is unique and rather abnormal for a normal human being, by having too tall of a spine and four arms." textAlignment="CENTER" wrappingWidth="1235.2236328125">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Text>
+      <Text layoutX="37.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="One was forging some sort of weapon, the second was knitting some clothing, the third was writing something on a sheet of paper with immense speed and the fourth was waving in your direction, greeting you." textAlignment="CENTER" wrappingWidth="1235.2236328125">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Text>
+      <Text layoutX="30.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="‘Ah, a new Gladiator,’ the creature spoke in a deep voice. ‘Pleased to meet new faces. You may question what I am, do you not? Falter not, for I am your ally in the battles to come here. Your Servant, if you will are willing to call me that. Now, I would prefer if you would state your name.’" textAlignment="CENTER" wrappingWidth="1235.2236328125">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Text>
+      <Text layoutX="30.0" layoutY="496.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State your name to your servant:" textAlignment="CENTER" wrappingWidth="1235.2236328125">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Text>
+      <TextField fx:id="name" layoutX="456.0" layoutY="555.0">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </TextField>
+      <Text fx:id="warning" layoutX="30.0" layoutY="539.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1235.2236328125">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Text>
+      <Button fx:id="state" layoutX="517.0" layoutY="637.0" mnemonicParsing="false" onAction="#state" text="State your name">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

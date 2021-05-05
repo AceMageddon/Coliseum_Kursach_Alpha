@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.fxcontroller.MainController">
+   <children>
+      <Button fx:id="button1" alignment="CENTER" layoutX="104.0" layoutY="427.0" onAction="#signup" prefHeight="186.0" prefWidth="479.0" text="Sign Up">
+         <font>
+            <Font size="78.0" />
+         </font></Button>
+      <Text layoutX="207.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WELCOME TO THE COLISEUM!" textAlignment="CENTER" wrappingWidth="865.14453125">
+         <font>
+            <Font size="96.0" />
+         </font>
+      </Text>
+      <Text layoutX="207.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please Register if you are new, and feel free to return to the Coliseum by logging in.&quot;" textAlignment="CENTER" wrappingWidth="865.14453125">
+         <font>
+            <Font size="39.0" />
+         </font>
+      </Text>
+      <Button fx:id="button2" alignment="CENTER" layoutX="730.0" layoutY="427.0" onAction="#signin" prefHeight="186.0" prefWidth="479.0" text="Sign In">
+         <font>
+            <Font size="78.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

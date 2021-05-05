@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.fxcontroller.GameController">
+   <children>
+      <Text layoutX="10.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Here are the best of the best from The Coliseum:" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Text>
+      <Button fx:id="show" layoutX="520.0" layoutY="117.0" mnemonicParsing="false" onAction="#show" text="Show me the list" textAlignment="CENTER">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Button fx:id="back" layoutX="477.0" layoutY="599.0" mnemonicParsing="false" onAction="#back" text="Return back to the hub">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Text fx:id="gold" layoutX="10.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Text>
+      <Text fx:id="silver" layoutX="14.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Text>
+      <Text fx:id="bronze" layoutX="14.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Text>
+      <Text fx:id="yourhs" layoutX="7.0" layoutY="477.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

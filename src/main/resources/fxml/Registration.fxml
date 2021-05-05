@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.fxcontroller.MainController">
+   <children>
+      <Text layoutX="267.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REGISTRATION:" textAlignment="CENTER" wrappingWidth="746.3857421875">
+         <font>
+            <Font size="96.0" />
+         </font>
+      </Text>
+      <Text layoutX="283.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please input your email and password in the fields below:" textAlignment="CENTER" wrappingWidth="746.3857421875">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <TextField fx:id="regemail" layoutX="283.0" layoutY="292.0" prefHeight="68.0" prefWidth="714.0">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </TextField>
+      <Text layoutX="283.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" wrappingWidth="746.3857421875">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <Text layoutX="283.0" layoutY="416.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" wrappingWidth="746.3857421875">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <TextField fx:id="regshowpassword" layoutX="285.0" layoutY="430.0" prefHeight="68.0" prefWidth="714.0" visible="false">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </TextField>
+      <CheckBox fx:id="showpassword" layoutX="533.0" layoutY="509.0" mnemonicParsing="false" onAction="#showpassword" prefHeight="35.0" prefWidth="219.0" text="Show Password">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </CheckBox>
+      <Button fx:id="register" layoutX="392.0" layoutY="558.0" mnemonicParsing="false" onAction="#gotocode" prefHeight="74.0" prefWidth="495.0" text="Register" textAlignment="CENTER">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Button>
+      <Button fx:id="signin" layoutX="504.0" layoutY="666.0" mnemonicParsing="false" onAction="#signin" prefHeight="36.0" prefWidth="270.0" text="go to login field" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <PasswordField fx:id="regpassword" layoutX="286.0" layoutY="430.0" prefHeight="68.0" prefWidth="714.0">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </PasswordField>
+      <Text fx:id="regerror" layoutX="7.0" layoutY="656.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1271.3857421875">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

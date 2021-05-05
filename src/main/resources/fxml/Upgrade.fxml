@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.fxcontroller.GameController">
+   <children>
+      <Text layoutX="13.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hand over what you need to improve." textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Text>
+      <Text fx:id="responseup" layoutX="28.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Text>
+      <Button layoutX="470.0" layoutY="158.0" mnemonicParsing="false" onAction="#hitup" text="Make my shield hit harder" textAlignment="CENTER">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Button layoutX="392.0" layoutY="241.0" mnemonicParsing="false" onAction="#healthup" text="Make my shield sustain more damage" textAlignment="CENTER">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Button layoutX="489.0" layoutY="336.0" mnemonicParsing="false" onAction="#armup" text="Make my armor thicker">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Button layoutX="381.0" layoutY="426.0" mnemonicParsing="false" onAction="#medup" text="Make my gourd contain more medicine">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Button layoutX="371.0" layoutY="517.0" mnemonicParsing="false" onAction="#fireup" text="Make my shield's true strength be longer">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Button layoutX="468.0" layoutY="607.0" mnemonicParsing="false" onAction="#back" text="I do not wish for upgrades">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

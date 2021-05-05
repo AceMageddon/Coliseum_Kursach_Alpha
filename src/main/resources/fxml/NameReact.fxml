@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.fxcontroller.GameController">
+   <children>
+      <Text fx:id="namestate" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pleased to meet you." textAlignment="CENTER" wrappingWidth="1280.0">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Text>
+      <Text layoutX="30.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="After that some sort of a gourd with medicine in it, as well as some armor, which you put on yourself." textAlignment="CENTER" wrappingWidth="1235.2236328125">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Text>
+      <Text layoutX="37.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="‘Please, take this,’ says The Servant as he hands you a steel round shield. ‘This weapon shall bring you glory in the battles to come, if you use it wisely. Do not falter, however, with time, you will learn its true strength.’" textAlignment="CENTER" wrappingWidth="1235.2236328125">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Text>
+      <Text layoutX="30.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="‘Now, step beyond the doors and face your first opponent. Wonder what legend you shall face first,’" textAlignment="CENTER" wrappingWidth="1235.2236328125">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Text>
+      <Button fx:id="venture" layoutX="288.0" layoutY="550.0" mnemonicParsing="false" onAction="#venture" text="The time has come. Venture forward.">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Button>
+      <Text layoutX="37.0" layoutY="421.0" strokeType="OUTSIDE" strokeWidth="0.0" text="‘Fear not, in battle or not, I shall help you both here and in battle with whatever I can provide for you,’" textAlignment="CENTER" wrappingWidth="1235.2236328125">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Text>
+      <Text layoutX="30.0" layoutY="515.0" strokeType="OUTSIDE" strokeWidth="0.0" text="‘Now go forth and fight, Gladiator!’" textAlignment="CENTER" wrappingWidth="1235.2236328125">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

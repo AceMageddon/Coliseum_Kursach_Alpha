@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.fxcontroller.GameController">
+   <children>
+      <Text fx:id="p1" layoutX="24.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fx:id="p2" layoutX="24.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fx:id="p3" layoutX="24.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fx:id="p4" layoutX="34.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fx:id="p5" layoutX="34.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fx:id="p7" layoutX="24.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fx:id="p6" layoutX="34.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fx:id="p8" layoutX="17.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fx:id="e9" layoutX="24.0" layoutY="437.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Text>
+      <Text fx:id="p9" layoutX="34.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fx:id="p10" layoutX="34.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fx:id="p11" layoutX="34.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fx:id="p12" layoutX="34.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1270.7294921875">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Button fx:id="head" layoutX="607.0" layoutY="432.0" mnemonicParsing="false" onAction="#head" prefHeight="47.0" prefWidth="124.0" text="Head" visible="false">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="body" layoutX="607.0" layoutY="530.0" mnemonicParsing="false" onAction="#body" prefHeight="47.0" prefWidth="124.0" text="Body" visible="false">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="rarm" layoutX="782.0" layoutY="530.0" mnemonicParsing="false" onAction="#rarm" prefHeight="54.0" prefWidth="153.0" text="Right Arm" visible="false">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="larm" layoutX="405.0" layoutY="530.0" mnemonicParsing="false" onAction="#larm" prefHeight="54.0" prefWidth="143.0" text="Left Arm" visible="false">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="lleg" layoutX="502.0" layoutY="644.0" mnemonicParsing="false" onAction="#lleg" prefHeight="54.0" prefWidth="143.0" text="Left Leg" visible="false">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="rleg" layoutX="711.0" layoutY="649.0" mnemonicParsing="false" onAction="#rleg" prefHeight="54.0" prefWidth="143.0" text="Right Leg" visible="false">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="attack" layoutX="607.0" layoutY="432.0" mnemonicParsing="false" onAction="#attack" prefHeight="47.0" prefWidth="124.0" text="Attack" visible="false">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="block" layoutX="607.0" layoutY="503.0" mnemonicParsing="false" onAction="#block" prefHeight="54.0" prefWidth="124.0" text="Block" visible="false">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="heal" layoutX="540.0" layoutY="577.0" mnemonicParsing="false" onAction="#heal" prefHeight="54.0" prefWidth="258.0" text="Use healing gourd" visible="false">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="fire" layoutX="540.0" layoutY="649.0" mnemonicParsing="false" onAction="#fire" prefHeight="54.0" prefWidth="258.0" text="Unleash Fire" visible="false">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="playerturn" layoutX="568.0" layoutY="316.0" mnemonicParsing="false" onAction="#playerattack" text="Player's turn">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Button fx:id="playerenemy" layoutX="540.0" layoutY="611.0" mnemonicParsing="false" onAction="#enemybegin" text="Opponent's turn" visible="false">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Button fx:id="goback" layoutX="608.0" layoutY="372.0" mnemonicParsing="false" onAction="#playerattack" prefHeight="47.0" prefWidth="124.0" text="Go Back" visible="false">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="youwon" layoutX="540.0" layoutY="611.0" mnemonicParsing="false" onAction="#gotoresult" prefHeight="65.0" prefWidth="258.0" text="You Won!" visible="false">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
