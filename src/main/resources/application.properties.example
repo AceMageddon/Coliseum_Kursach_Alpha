@@ -1,0 +1,20 @@
+# Example configuration. Never commit real credentials.
+#
+# application.properties reads these settings from environment variables:
+#   DB_URL         optional, defaults to jdbc:postgresql://localhost:5432/coliseumstats
+#   DB_USERNAME    PostgreSQL user
+#   DB_PASSWORD    PostgreSQL password
+#   MAIL_USERNAME  SMTP login used to send registration and password-reset codes
+#   MAIL_PASSWORD  SMTP password (for Gmail, an App Password, not the account password)
+#   MAIL_FROM      optional sender address, defaults to MAIL_USERNAME
+#
+# Alternatively, copy this file to config/application.properties in the project root
+# (git-ignored) and fill in real values; Spring Boot loads it on top of the built-in file.
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/coliseumstats
+spring.datasource.username=coliseum
+spring.datasource.password=change-me
+
+spring.mail.username=your-address@example.com
+spring.mail.password=your-app-password
+coliseum.mail.from=your-address@example.com

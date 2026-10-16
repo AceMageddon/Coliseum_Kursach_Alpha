@@ -34,3 +34,11 @@ build/
 
 # Project exclude paths
 /out/
+
+### Bundled SDK and jars (JavaFX SDK is downloaded separately, libraries come from Maven) ###
+/javafx-sdk-*/
+/lib/
+
+### Local configuration with real credentials ###
+/config/
+.env
